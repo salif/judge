@@ -1,0 +1,40 @@
+body {
+	margin:0;
+	padding:0;
+}
+.con {
+	width:90%;
+	max-width:500px;
+	margin:auto;
+}
+.textarea {
+	text-align:center;
+	margin-top:10px;
+}
+#code {
+	width:90%;
+	height:200px;
+	padding:10px;
+	background-color:#333;
+	color:#fff;
+	border:0;
+	border-radius:5px;
+}
+#code:hover {
+	outline:0;
+}
+.opt {
+	margin-left:20px;
+} 
+.sub, #lang {
+	padding:10px;
+	background-color:#33f;
+	color:#fff;
+	font-weight:bold;
+	border:0;
+	border-radius:5px;
+}
+.sub:focus, #lang:focus {
+	outline:0;
+	background-color:#00f;
+}
