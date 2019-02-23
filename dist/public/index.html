@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+	<script src="script.js"></script>
+	<script src="exercises.js"></script>
     <title>Judge System</title>
 </head>
 <body>
@@ -14,10 +15,17 @@
 			<textarea id="code"></textarea>
 		</div>
 		<dev class="opt">
-		<select id="lang">
+		<select id="lang" class="select osn">
 			<option value="js">JavaScript</option>
 		</select>
-			<input type="button" value="submit" class="sub" onclick="_evalCode_submit();" />
+		<select id="exe" class="select osn">
+			<option value="exe1">Exercise 1</option>
+			<option value="exe2">Exercise 2</option>
+			<option value="exe3">Exercise 3</option>
+			<option value="exe4">Exercise 4</option>
+			<option value="exe5">Exercise 5</option>
+		</select>
+			<input type="button" value="submit" class="sub osn" onclick="_evalCode_submit();" />
 		</dev>
 	</div>
 </body>

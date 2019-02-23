@@ -1,7 +1,8 @@
-let _evalCode_orig_code = "";
+let _evalCode_orig_code: any[] = [];
+let _evalCode_orig_args: any[] = [];
 (() => {
     let _evalCode_con: any[] = [];
-    function js(code: string) {
+    function js(code: string, args: any[]) {
         ((_evalCode_code) => {
             let console = {
                 log: (v: any) => {
@@ -14,7 +15,7 @@ let _evalCode_orig_code = "";
                     _evalCode_con.push(v);
                 }
             };
-            const _evalCode_args: any[] = ["arg1", "arg2"];
+            const _evalCode_args: any[] = _evalCode_orig_args;
             let _evalCode_i: number = -1;
             let alert: Function = (v: any) => {
                 console.log(v);
@@ -34,13 +35,24 @@ let _evalCode_orig_code = "";
         let code: string = codeEl.value;
         const langEl: any = document.getElementById("lang");
         let lang: string = langEl.value;
+        const exeEl: any = document.getElementById("code");
+        let exe: string = exeEl.value;
+        switch (exe) {
+            case "exe1":
+                let exejs = window["exercises"]["exe1"];
+                _evalCode_orig_args = exejs[1];
+                _evalCode_orig_code = [exejs[2], exejs[3], exejs[4], exejs[5], exejs[6]];
+                break;
+        }
         switch (lang) {
             case "js":
-                js(code);
+                for (let i = 0; i < 5; i++) {
+                    js(code, _evalCode_orig_args);
+                }
                 break;
         }
         setTimeout(() => {
-            if (_evalCode_con.join("\n") === _evalCode_orig_code) {
+            if (_evalCode_con.join("\n") === _evalCode_orig_code.join()) {
                 alert(true);
             }
             else {
