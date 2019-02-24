@@ -82,4 +82,3 @@ window.addEventListener("load", () => {
     }
     exeFile.send();
 });
-//(new window["DOMParser"]()).parseFromString(str, "text/xml"))
