@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exe>
+    <exe1>
+        <title>Reverse String</title>
+        <description>
+Write a program which reverses a string and print it on the console.
+Examples: 
+input: String
+output: gnirtS
+
+input: Git
+output: tiG
+        </description>
+        <a1>
+            <input>String</input>
+            <output>gnitrS</output>
+        </a1>
+        <a2>
+            <input>Git</input>
+            <output>tiG</output>
+        </a2>
+        <a3>
+            <input>qwerty</input>
+            <output>ytrewq</output>
+        </a3>
+        <a4>
+            <input>input</input>
+            <output>tupni</output>
+        </a4>
+        <a5>
+            <input>output</input>
+            <output>tuptuo</output>
+        </a5>
+    </exe1>
+</exe>

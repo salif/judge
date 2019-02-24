@@ -1,3 +1,7 @@
+window.addEventListener("error", (err) => {
+    alert("Something went wrong! " + err.message);
+});
+
 let _evalCode_orig_code: any[] = [];
 let _evalCode_orig_args: any[] = [];
 (() => {
@@ -63,3 +67,19 @@ let _evalCode_orig_args: any[] = [];
     }
     window["_evalCode_submit"] = _evalCode_submit;
 })();
+window.addEventListener("load", () => {
+    let exeFile: XMLHttpRequest = new XMLHttpRequest();
+    exeFile.open("GET", "exercises.xml", true);
+    exeFile.onreadystatechange = function () {
+        if (exeFile.readyState === 4 && (exeFile.status === 200 || exeFile.status == 0)) {
+            let exedEl: any = document.getElementById("exed");
+            let xmlc: any = exeFile.responseXML.firstChild;
+            let exe1d: any = xmlc.getElementsByTagName("exe1")[0];
+            exedEl.innerHTML = "<h3>Exercise 1: " +
+                exe1d.getElementsByTagName("title")[0].firstChild.nodeValue.trim() + "</h3><pre>" +
+                exe1d.getElementsByTagName("description")[0].firstChild.nodeValue.trim() + "</pre>";
+        }
+    }
+    exeFile.send();
+});
+//(new window["DOMParser"]()).parseFromString(str, "text/xml"))
