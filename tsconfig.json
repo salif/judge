@@ -1,15 +1,9 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "outDir": "dist",
     "baseUrl": ".",
-    "paths": {
-      "*": [
-        "node_modules/*"
-      ]
-    }
+    "module": "es2015",
+    "outDir": "dist"
   },
   "include": [
     "src/**/*"

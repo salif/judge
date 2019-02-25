@@ -48,3 +48,7 @@ body {
 	border-radius: 10px;
 	font-weight: bold;
 }
+::selection {
+	background-color: #33f;
+	color: #fff;
+}
