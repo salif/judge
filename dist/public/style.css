@@ -2,11 +2,12 @@ body {
 	margin:0;
 	padding:0;
 }
-.con {
+#con {
 	width:90%;
 	max-width:1024px;
 	margin:auto;
-	margin-top: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 #code {
 	width:100%;
@@ -47,6 +48,25 @@ body {
 	border: 0;
 	border-radius: 10px;
 	font-weight: bold;
+}
+#sbms {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+#sbms td, #sbms th {
+	border: 1px solid #ddd;
+	padding: 5px;
+}
+#sbms tr:nth-child(even){background-color: #f2f2f2;}
+#sbms tr:hover {background-color: #ddd;}
+#sbms th {
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 10px;
+	text-align: left;
+	background-color: #333;
+	color: #fff;
 }
 ::selection {
 	background-color: #33f;

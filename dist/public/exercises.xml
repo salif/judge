@@ -3,7 +3,8 @@
 <exe1>
 <title>Reverse String</title>
 <description>
-Write a program which reverses a string and print it on the console.
+Write a program which reverses 
+a string and print it on the console.
 
 Examples: 
 
@@ -40,7 +41,8 @@ console.log(prompt().split("").reverse().join(""));
 <exe2>
 <title>Smallest of Three Numbers</title>
 <description>
-Write a method to print the smallest of three integer numbers.
+Write a method to print the 
+smallest of three integer numbers.
 Examples:
 input: 
     3
@@ -114,7 +116,9 @@ else {
 <exe3>
 <title>NxN Matrix</title>
 <description>
-Write a method that receives a single integer n and prints nxn matrix with that number.
+Write a method that receives a 
+single integer n and prints nxn 
+matrix with that number.
 Examples:
 input: 3
 output: 

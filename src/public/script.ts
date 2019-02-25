@@ -24,12 +24,38 @@ let _console: any[][] = [[], [], [], [], []];
             }
         }
         exeFile.send();
+        if (!localStorage.getItem("jcount")) {
+            localStorage.setItem("jcount", "0");
+        }
+        _updateStorage();
     });
 
     window.addEventListener("error", (err) => {
         alert("Something went wrong! " + err.message);
-        _isRunning=false;
+        _isRunning = false;
     });
+
+    function _updateStorage(): void {
+        let count: number = parseInt(localStorage.getItem("jcount"), 10);
+        let tempdom: any = document.querySelectorAll("td");
+        tempdom.forEach(function (e: any) { e.remove() });
+        for (let i = 1; i <= count; i++) {
+            let jd_data: string[] = localStorage.getItem("jd" + i).split("||");
+            let tbl: any = document.getElementById("sbms");
+            let tbl_row: any = tbl.insertRow(-1);
+            let tbl_cell1: any = tbl_row.insertCell(0);
+            let tbl_cell2: any = tbl_row.insertCell(1);
+            let tbl_cell3: any = tbl_row.insertCell(2);
+            let tbl_cell4: any = tbl_row.insertCell(3);
+            tbl_cell1.innerHTML = jd_data[1]
+                .replace(/n/g, "&#10008;")
+                .replace(/y/g, "&#10004;") +
+                " " + jd_data[0] + "/5";
+            tbl_cell2.innerHTML = jd_data[2];
+            tbl_cell3.innerHTML = jd_data[3];
+            tbl_cell4.innerHTML = "<input type='button' value='delete' onclick='dells(" + i + ")' />";
+        }
+    }
 
     function _run_js(code: string, args: any, ci: number): void {
         ((code: string) => {
@@ -60,6 +86,7 @@ let _console: any[][] = [[], [], [], [], []];
             let _output: any = null;
             let _xml: any = null;
             let _isRunning: any = null;
+            let _updateStorage: any = null;
             let window: any = null;
             let document: any = null;
             let XMLHttpRequest: any = null;
@@ -73,6 +100,8 @@ let _console: any[][] = [[], [], [], [], []];
             let setInterval: any = null;
             let setTimeout: any = null;
             let cookie: any = null;
+            let localStorage: any = null;
+            let sessionStorage: any = null;
             eval(code);
         }).call({}, code);
     }
@@ -142,14 +171,23 @@ let _console: any[][] = [[], [], [], [], []];
         ];
         _run_code(lang, code, _input);
         setTimeout(() => {
-            let score:number=0;
-            for (let i=0; i<5; i++) {
-                if(_console[i].join("\n") === _output[i].join("\n")) {
+            let score: number = 0;
+            let det_score: string = "";
+            for (let i = 0; i < 5; i++) {
+                if (_console[i].join("\n") === _output[i].join("\n")) {
                     score++;
+                    det_score += "y";
+                }
+                else {
+                    det_score += "n";
                 }
             }
-            alert("score: " + score);
             _console = [[], [], [], [], []];
+            let l_count: number = parseInt(localStorage.getItem("jcount"), 10) + 1;
+            localStorage.setItem("jcount", l_count.toString());
+            localStorage.setItem("jd" + l_count, score + "||" + det_score + "||" + exeNum + "||" + new Date().toLocaleString());
+            _updateStorage();
+            window.scrollTo(0, document.body.scrollHeight);
             _isRunning = false;
         }, 1000)
     }
