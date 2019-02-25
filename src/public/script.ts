@@ -1,7 +1,7 @@
 import { join } from "path";
 
-let _input: any[] = [];
-let _output: any[] = [];
+let _input: any[][] = [[], [], [], [], []];
+let _output: any[][] = [[], [], [], [], []];
 let _xml: any;
 let _isRunning: boolean = false;
 let _console: any[][] = [[], [], [], [], []];
@@ -28,19 +28,20 @@ let _console: any[][] = [[], [], [], [], []];
 
     window.addEventListener("error", (err) => {
         alert("Something went wrong! " + err.message);
+        _isRunning=false;
     });
 
-    function _run_js(code: string, args: any, ci:number): void {
+    function _run_js(code: string, args: any, ci: number): void {
         ((code: string) => {
             let console = {
                 log: (v: any) => {
-                    _console[ci].push(v);
+                    _console[ci].push(v.toString());
                 },
                 error: (v: any) => {
-                    _console[ci].push(v);
+                    _console[ci].push(v.toString());
                 },
                 warn: (v: any) => {
-                    _console[ci].push(v);
+                    _console[ci].push(v.toString());
                 }
             };
             let _i: number = -1;
@@ -51,14 +52,14 @@ let _console: any[][] = [[], [], [], [], []];
                 return args[++_i];
             };
             let confirm: Function = () => { };
-            let _submit:any=null;
-            let _run_code:any=null;
+            let _submit: any = null;
+            let _run_code: any = null;
             let _exeChange = null;
-            let _run_js:any=null;
-            let _input:any=null;
-            let _output:any=null;
-            let _xml:any = null;
-            let _isRunning:any=null;
+            let _run_js: any = null;
+            let _input: any = null;
+            let _output: any = null;
+            let _xml: any = null;
+            let _isRunning: any = null;
             let window: any = null;
             let document: any = null;
             let XMLHttpRequest: any = null;
@@ -76,8 +77,8 @@ let _console: any[][] = [[], [], [], [], []];
         }).call({}, code);
     }
 
-    function _run_code(lang: string, code: string, args: any[]) {
-        for (let i = 0; i < args.length; i++) {
+    function _run_code(lang: string, code: string, args: any[][]) {
+        for (let i = 0; i < 5; i++) {
             _run_js(code, args[i], i);
         }
     }
@@ -96,37 +97,59 @@ let _console: any[][] = [[], [], [], [], []];
         let exeNum: string = exeElement.value;
         let xml: any = _xml.getElementsByTagName("exe" + exeNum)[0];
         _input = [
-            xml
+            [xml
                 .getElementsByTagName("a1")[0]
                 .getElementsByTagName("input")[0]
-                .firstChild.nodeValue.trim(),
-            xml
+                .firstChild.nodeValue.trim()],
+            [xml
                 .getElementsByTagName("a2")[0]
                 .getElementsByTagName("input")[0]
-                .firstChild.nodeValue.trim(),
-            xml
+                .firstChild.nodeValue.trim()],
+            [xml
                 .getElementsByTagName("a3")[0]
                 .getElementsByTagName("input")[0]
-                .firstChild.nodeValue.trim(),
-            xml
+                .firstChild.nodeValue.trim()],
+            [xml
                 .getElementsByTagName("a4")[0]
                 .getElementsByTagName("input")[0]
-                .firstChild.nodeValue.trim(),
-            xml
+                .firstChild.nodeValue.trim()],
+            [xml
                 .getElementsByTagName("a5")[0]
                 .getElementsByTagName("input")[0]
-                .firstChild.nodeValue.trim(),
+                .firstChild.nodeValue.trim()],
+        ];
+        _output = [
+            [xml
+                .getElementsByTagName("a1")[0]
+                .getElementsByTagName("output")[0]
+                .firstChild.nodeValue.trim()],
+            [xml
+                .getElementsByTagName("a2")[0]
+                .getElementsByTagName("output")[0]
+                .firstChild.nodeValue.trim()],
+            [xml
+                .getElementsByTagName("a3")[0]
+                .getElementsByTagName("output")[0]
+                .firstChild.nodeValue.trim()],
+            [xml
+                .getElementsByTagName("a4")[0]
+                .getElementsByTagName("output")[0]
+                .firstChild.nodeValue.trim()],
+            [xml
+                .getElementsByTagName("a5")[0]
+                .getElementsByTagName("output")[0]
+                .firstChild.nodeValue.trim()],
         ];
         _run_code(lang, code, _input);
         setTimeout(() => {
             alert("console: " + JSON.stringify(_console));
-            alert("output: " + JSON.stringify(_output));
-            if (_console.join("\n") === _output.join()) {
-                alert(true);
+            let score:number=0;
+            for (let i=0; i<5; i++) {
+                if(_console[i].join("\n") === _output[i].join("\n")) {
+                    score++;
+                }
             }
-            else {
-                alert(_console);
-            }
+            alert("score: " + score);
             _console = [[], [], [], [], []];
             _isRunning = false;
         }, 1000)

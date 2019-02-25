@@ -13,7 +13,7 @@ output: tiG
         </description>
         <a1>
             <input>String</input>
-            <output>gnitrS</output>
+            <output>gnirtS</output>
         </a1>
         <a2>
             <input>Git</input>
