@@ -1,0 +1,30 @@
+{
+  "name": "judge",
+  "version": "0.0.1",
+  "description": "Serverless Judge System",
+  "main": "dist/server.js",
+  "scripts": {
+    "start": "node dist/server.js",
+    "test": "npm start",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salifm/judge.git"
+  },
+  "keywords": [
+    "judge",
+    "static",
+    "serverless"
+  ],
+  "author": "Salif Mehmed",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/salifm/judge/issues"
+  },
+  "homepage": "https://github.com/salifm/judge#readme",
+  "dependencies": {
+    "@types/node": "^11.9.5",
+    "express": "^4.16.4"
+  }
+}

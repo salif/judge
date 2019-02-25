@@ -4,9 +4,10 @@ window.addEventListener("error", (err) => {
 
 let _evalCode_orig_code: any[] = [];
 let _evalCode_orig_args: any[] = [];
+let _evalCode_orig_xml: any;
 (() => {
     let _evalCode_con: any[] = [];
-    function js(code: string, args: any[]) {
+    function js(code: string, args: any[]): void {
         ((_evalCode_code) => {
             let console = {
                 log: (v: any) => {
@@ -27,19 +28,32 @@ let _evalCode_orig_args: any[] = [];
             let prompt: Function = (v: any) => {
                 return _evalCode_args[++_evalCode_i];
             };
+            let confirm: Function = () => {};
             let _evalCode_submit: Function = () => { };
             let _evalCode_orig_code: string = "";
-            let window: any = {};
-            let document: any = {};
+            let _evalCode_exeChange = null;
+            let window: any = null;
+            let document: any = null;
+            let XMLHttpRequest: any = null;
+            let fetch: any = null;
+            let open: Function = function () { };
+            let close: Function = function () { };
+            let screen: any = null;
+            let location: any = null;
+            let history: any = null;
+            let navigator:any=null;
+            let setInterva:any=null;
+            let setTimeout:any=null;
+            let cookie:any=null;
             eval(_evalCode_code);
-        })(code)
+        }).call({}, code);
     }
-    function _evalCode_submit() {
+    function _evalCode_submit(): void {
         const codeEl: any = document.getElementById("code");
         let code: string = codeEl.value;
         const langEl: any = document.getElementById("lang");
         let lang: string = langEl.value;
-        const exeEl: any = document.getElementById("code");
+        const exeEl: any = document.getElementById("exe");
         let exe: string = exeEl.value;
         switch (exe) {
             case "exe1":
@@ -66,6 +80,21 @@ let _evalCode_orig_args: any[] = [];
         }, 1000)
     }
     window["_evalCode_submit"] = _evalCode_submit;
+    function _evalCode_exeChange(): void {
+        let exeNum: string = "";
+        const exeEl: any = document.getElementById("exe");
+        exeNum = exeEl.value;
+        document.getElementById("exed").innerHTML = "<h3>Exercise " + exeNum + ": " +
+            _evalCode_orig_xml
+                .getElementsByTagName("exe" + exeNum)[0]
+                .getElementsByTagName("title")[0]
+                .firstChild.nodeValue.trim() + "</h3><pre>" +
+            _evalCode_orig_xml
+                .getElementsByTagName("exe" + exeNum)[0]
+                .getElementsByTagName("description")[0]
+                .firstChild.nodeValue.trim() + "</pre>"
+    }
+    window["_evalCode_exeChange"] = _evalCode_exeChange;
 })();
 window.addEventListener("load", () => {
     let exeFile: XMLHttpRequest = new XMLHttpRequest();
@@ -76,8 +105,11 @@ window.addEventListener("load", () => {
             let xmlc: any = exeFile.responseXML.firstChild;
             let exe1d: any = xmlc.getElementsByTagName("exe1")[0];
             exedEl.innerHTML = "<h3>Exercise 1: " +
-                exe1d.getElementsByTagName("title")[0].firstChild.nodeValue.trim() + "</h3><pre>" +
-                exe1d.getElementsByTagName("description")[0].firstChild.nodeValue.trim() + "</pre>";
+                exe1d.getElementsByTagName("title")[0]
+                    .firstChild.nodeValue.trim() + "</h3><pre>" +
+                exe1d.getElementsByTagName("description")[0]
+                    .firstChild.nodeValue.trim() + "</pre>";
+            _evalCode_orig_xml = xmlc;
         }
     }
     exeFile.send();
