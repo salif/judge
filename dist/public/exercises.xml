@@ -1,131 +1,227 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <exe>
-    <exe1>
-        <title>Reverse String</title>
-        <description>
+<exe1>
+<title>Reverse String</title>
+<description>
 Write a program which reverses a string and print it on the console.
+
 Examples: 
+
 input: String
 output: gnirtS
 
 input: Git
 output: tiG
-        </description>
-        <a1>
-            <input>String</input>
-            <output>gnirtS</output>
-        </a1>
-        <a2>
-            <input>Git</input>
-            <output>tiG</output>
-        </a2>
-        <a3>
-            <input>qwerty</input>
-            <output>ytrewq</output>
-        </a3>
-        <a4>
-            <input>input</input>
-            <output>tupni</output>
-        </a4>
-        <a5>
-            <input>output</input>
-            <output>tuptuo</output>
-        </a5>
-    </exe1>
-    <exe2>
-        <title>Under development</title>
-        <description>Under development</description>
-        <a1>
-            <input>Under development</input>
-            <output>Under development</output>
-        </a1>
-        <a2>
-            <input>Under development</input>
-            <output>Under development</output>
-        </a2>
-        <a3>
-            <input>Under development</input>
-            <output>Under development</output>
-        </a3>
-        <a4>
-            <input>Under development</input>
-            <output>Under development</output>
-        </a4>
-        <a5>
-            <input>Under development</input>
-            <output>Under development</output>
-        </a5>
-    </exe2>
-    <exe3>
-        <title>Under development</title>
-        <description>Under development</description>
-        <a1>
-            <input>Under development</input>
-            <output>Under development</output>
-        </a1>
-        <a2>
-            <input>Under development</input>
-            <output>Under development</output>
-        </a2>
-        <a3>
-            <input>Under development</input>
-            <output>Under development</output>
-        </a3>
-        <a4>
-            <input>Under development</input>
-            <output>Under development</output>
-        </a4>
-        <a5>
-            <input>Under development</input>
-            <output>Under development</output>
-        </a5>
-    </exe3>
-    <exe4>
-        <title>Under development</title>
-        <description>Under development</description>
-        <a1>
-            <input>Under development</input>
-            <output>Under development</output>
-        </a1>
-        <a2>
-            <input>Under development</input>
-            <output>Under development</output>
-        </a2>
-        <a3>
-            <input>Under development</input>
-            <output>Under development</output>
-        </a3>
-        <a4>
-            <input>Under development</input>
-            <output>Under development</output>
-        </a4>
-        <a5>
-            <input>Under development</input>
-            <output>Under development</output>
-        </a5>
-    </exe4>
-    <exe5>
-        <title>Under development</title>
-        <description>Under development</description>
-        <a1>
-            <input>Under development</input>
-            <output>Under development</output>
-        </a1>
-        <a2>
-            <input>Under development</input>
-            <output>Under development</output>
-        </a2>
-        <a3>
-            <input>Under development</input>
-            <output>Under development</output>
-        </a3>
-        <a4>
-            <input>Under development</input>
-            <output>Under development</output>
-        </a4>
-        <a5>
-            <input>Under development</input>
-            <output>Under development</output>
-        </a5>
-    </exe5>
+</description>
+<a1>
+<input>String</input>
+<output>gnirtS</output>
+</a1>
+<a2>
+<input>Git</input>
+<output>tiG</output>
+</a2>
+<a3>
+<input>qwerty</input>
+<output>ytrewq</output>
+</a3>
+<a4>
+<input>input</input>
+<output>tupni</output>
+</a4>
+<a5>
+<input>output</input>
+<output>tuptuo</output>
+</a5>
+<examplecode>
+console.log(prompt().split("").reverse().join(""));
+</examplecode>
+</exe1>
+<exe2>
+<title>Smallest of Three Numbers</title>
+<description>
+Write a method to print the smallest of three integer numbers.
+Examples:
+input: 
+    3
+    8
+    24
+output: 3
+
+input:
+    44
+    95
+    29
+output: 29
+</description>
+<a1>
+<input>
+3
+8
+24
+</input>
+<output>3</output>
+</a1>
+<a2>
+<input>
+44
+95
+29
+</input>
+<output>29</output>
+</a2>
+<a3>
+<input>
+-4
+-64
+2
+</input>
+<output>-64</output>
+</a3>
+<a4>
+<input>
+5
+0
+-6
+</input>
+<output>
+-6
+</output>
+</a4>
+<a5>
+<input>
+-6
+-6
+-18
+</input>
+<output>-18</output>
+</a5>
+<examplecode>
+var first=parseInt(prompt(), 10);
+var second=parseInt(prompt(), 10);
+var third=parseInt(prompt(), 10);
+if(first &lt; second &amp;&amp; first &lt; third) {
+    console.log(first);
+}
+else if(second &lt; third){
+    console.log(second);
+}
+else {
+    console.log(third);
+}
+</examplecode>
+</exe2>
+<exe3>
+<title>NxN Matrix</title>
+<description>
+Write a method that receives a single integer n and prints nxn matrix with that number.
+Examples:
+input: 3
+output: 
+3 3 3
+3 3 3
+3 3 3
+
+input: 2
+output:
+2 2
+2 2
+</description>
+<a1>
+<input>3</input>
+<output>
+3 3 3
+3 3 3
+3 3 3
+</output>
+</a1>
+<a2>
+<input>2</input>
+<output>
+2 2
+2 2
+</output>
+</a2>
+<a3>
+<input>6</input>
+<output>
+6 6 6 6 6 6
+6 6 6 6 6 6
+6 6 6 6 6 6
+6 6 6 6 6 6
+6 6 6 6 6 6
+6 6 6 6 6 6
+</output>
+</a3>
+<a4>
+<input>1</input>
+<output>
+1
+</output>
+</a4>
+<a5>
+<input>4</input>
+<output>
+4 4 4 4
+4 4 4 4
+4 4 4 4
+4 4 4 4
+</output>
+</a5>
+<examplecode>
+let x = parseInt(prompt(), 10);
+var result = "";
+for(var i = 0; i &lt; x; i++) {
+  console.log(new Array(x).fill(x).toString().replace(/,/g, " "));
+}
+</examplecode>
+</exe3>
+<exe4>
+<title>Under development</title>
+<description>Under development</description>
+<a1>
+<input>Under development</input>
+<output>Under development</output>
+</a1>
+<a2>
+<input>Under development</input>
+<output>Under development</output>
+</a2>
+<a3>
+<input>Under development</input>
+<output>Under development</output>
+</a3>
+<a4>
+<input>Under development</input>
+<output>Under development</output>
+</a4>
+<a5>
+<input>Under development</input>
+<output>Under development</output>
+</a5>
+</exe4>
+<exe5>
+<title>Under development</title>
+<description>Under development</description>
+<a1>
+<input>Under development</input>
+<output>Under development</output>
+</a1>
+<a2>
+<input>Under development</input>
+<output>Under development</output>
+</a2>
+<a3>
+<input>Under development</input>
+<output>Under development</output>
+</a3>
+<a4>
+<input>Under development</input>
+<output>Under development</output>
+</a4>
+<a5>
+<input>Under development</input>
+<output>Under development</output>
+</a5>
+</exe5>
 </exe>

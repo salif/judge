@@ -97,52 +97,51 @@ let _console: any[][] = [[], [], [], [], []];
         let exeNum: string = exeElement.value;
         let xml: any = _xml.getElementsByTagName("exe" + exeNum)[0];
         _input = [
-            [xml
+            xml
                 .getElementsByTagName("a1")[0]
                 .getElementsByTagName("input")[0]
-                .firstChild.nodeValue.trim()],
-            [xml
+                .firstChild.nodeValue.trim().split("\n"),
+            xml
                 .getElementsByTagName("a2")[0]
                 .getElementsByTagName("input")[0]
-                .firstChild.nodeValue.trim()],
-            [xml
+                .firstChild.nodeValue.trim().split("\n"),
+            xml
                 .getElementsByTagName("a3")[0]
                 .getElementsByTagName("input")[0]
-                .firstChild.nodeValue.trim()],
-            [xml
+                .firstChild.nodeValue.trim().split("\n"),
+            xml
                 .getElementsByTagName("a4")[0]
                 .getElementsByTagName("input")[0]
-                .firstChild.nodeValue.trim()],
-            [xml
+                .firstChild.nodeValue.trim().split("\n"),
+            xml
                 .getElementsByTagName("a5")[0]
                 .getElementsByTagName("input")[0]
-                .firstChild.nodeValue.trim()],
+                .firstChild.nodeValue.trim().split("\n")
         ];
         _output = [
-            [xml
+            xml
                 .getElementsByTagName("a1")[0]
                 .getElementsByTagName("output")[0]
-                .firstChild.nodeValue.trim()],
-            [xml
+                .firstChild.nodeValue.trim().split("\n"),
+            xml
                 .getElementsByTagName("a2")[0]
                 .getElementsByTagName("output")[0]
-                .firstChild.nodeValue.trim()],
-            [xml
+                .firstChild.nodeValue.trim().split("\n"),
+            xml
                 .getElementsByTagName("a3")[0]
                 .getElementsByTagName("output")[0]
-                .firstChild.nodeValue.trim()],
-            [xml
+                .firstChild.nodeValue.trim().split("\n"),
+            xml
                 .getElementsByTagName("a4")[0]
                 .getElementsByTagName("output")[0]
-                .firstChild.nodeValue.trim()],
-            [xml
+                .firstChild.nodeValue.trim().split("\n"),
+            xml
                 .getElementsByTagName("a5")[0]
                 .getElementsByTagName("output")[0]
-                .firstChild.nodeValue.trim()],
+                .firstChild.nodeValue.trim().split("\n")
         ];
         _run_code(lang, code, _input);
         setTimeout(() => {
-            alert("console: " + JSON.stringify(_console));
             let score:number=0;
             for (let i=0; i<5; i++) {
                 if(_console[i].join("\n") === _output[i].join("\n")) {
