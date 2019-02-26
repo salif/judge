@@ -43,7 +43,9 @@ console.log(prompt().split("").reverse().join(""));
 <description>
 Write a method to print the 
 smallest of three integer numbers.
+
 Examples:
+
 input: 
     3
     8
@@ -119,7 +121,9 @@ else {
 Write a method that receives a 
 single integer n and prints nxn 
 matrix with that number.
+
 Examples:
+
 input: 3
 output: 
 3 3 3
@@ -181,51 +185,135 @@ for(var i = 0; i &lt; x; i++) {
 </examplecode>
 </exe3>
 <exe4>
-<title>Under development</title>
-<description>Under development</description>
+<title>Math operations</title>
+<description>
+Write a method that receives two number 
+and an operator, calculates the result 
+and returns it. You will be given
+three lines of input. The first will be 
+the first number, the second one will be 
+the operator and the last one will be
+the second number. 
+The possible operators are: / * + -
+
+Examples:
+
+input: 
+    5
+    *
+    2
+output: 10
+
+input: 
+    4
+    /
+    2
+output: 2
+</description>
 <a1>
-<input>Under development</input>
-<output>Under development</output>
+<input>
+5
+*
+2
+</input>
+<output>10</output>
 </a1>
 <a2>
-<input>Under development</input>
-<output>Under development</output>
+<input>
+4
+/
+2
+</input>
+<output>2</output>
 </a2>
 <a3>
-<input>Under development</input>
-<output>Under development</output>
+<input>
+5
++
+56
+</input>
+<output>61</output>
 </a3>
 <a4>
-<input>Under development</input>
-<output>Under development</output>
+<input>
+6
+-
+16
+</input>
+<output>-10</output>
 </a4>
 <a5>
-<input>Under development</input>
-<output>Under development</output>
+<input>
+-4
++
+2
+</input>
+<output>-2</output>
 </a5>
+<examplecode>
+let x=parseInt(prompt(), 10);
+let d=prompt();
+let y=parseInt(prompt(), 10);
+switch(d) {
+  case "+":
+    console.log(x+y);
+  break;
+  case "-":
+    console.log(x-y);
+  break;
+  case "*":
+    console.log(x*y);
+  break;
+  case "/":
+    console.log(x/y);
+  break;
+}
+</examplecode>
 </exe4>
 <exe5>
-<title>Under development</title>
-<description>Under development</description>
+<title>Day of Week</title>
+<description>
+Enter a day number [1…7] 
+and print the day name 
+or "Invalid day!". 
+
+Examples:
+
+input: 2
+output: Tuesday
+
+input: 11
+output: Invalid day!
+</description>
 <a1>
-<input>Under development</input>
-<output>Under development</output>
+<input>2</input>
+<output>Tuesday</output>
 </a1>
 <a2>
-<input>Under development</input>
-<output>Under development</output>
+<input>11</input>
+<output>Invalid day!</output>
 </a2>
 <a3>
-<input>Under development</input>
-<output>Under development</output>
+<input>1</input>
+<output>Monday</output>
 </a3>
 <a4>
-<input>Under development</input>
-<output>Under development</output>
+<input>7</input>
+<output>Sunday</output>
 </a4>
 <a5>
-<input>Under development</input>
-<output>Under development</output>
+<input>5</input>
+<output>Friday</output>
 </a5>
+<examplecode>
+let arr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+let n = parseInt(prompt(), 10);
+if(n &gt;= 0 &amp;&amp; n &lt;= 7) {
+  console.log(arr[n-1]);
+}
+else {
+  console.log("Invalid day!");
+}
+</examplecode>
 </exe5>
 </exe>

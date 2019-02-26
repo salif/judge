@@ -1,12 +1,10 @@
 {
   "name": "judge",
-  "version": "0.0.1",
+  "version": "0.5.0",
   "description": "Serverless Judge System",
   "main": "dist/server.js",
   "scripts": {
-    "start": "node dist/server.js",
-    "test": "npm start",
-    "build": "tsc"
+    "start": "node dist/server.js"
   },
   "repository": {
     "type": "git",

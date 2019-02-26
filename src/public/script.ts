@@ -1,5 +1,3 @@
-import { join } from "path";
-
 let _input: any[][] = [[], [], [], [], []];
 let _output: any[][] = [[], [], [], [], []];
 let _xml: any;
@@ -53,9 +51,26 @@ let _console: any[][] = [[], [], [], [], []];
                 " " + jd_data[0] + "/5";
             tbl_cell2.innerHTML = jd_data[2];
             tbl_cell3.innerHTML = jd_data[3];
-            tbl_cell4.innerHTML = "<input type='button' value='delete' onclick='dells(" + i + ")' />";
+            tbl_cell4.innerHTML = "<input type='button' value='delete' onclick='_dells(" + i + ")' />";
         }
     }
+
+    function _dells(v: number): void {
+        localStorage.removeItem("jd" + v);
+        let count: number = parseInt(localStorage.getItem("jcount"), 10);
+        if (v === count) {
+            localStorage.setItem("jcount", (count - 1).toString());
+            _updateStorage();
+            return;
+        }
+        for (let i = v + 1; i <= count; i++) {
+            localStorage.setItem("jd" + (i - 1), localStorage.getItem("jd" + i));
+        }
+        localStorage.removeItem("jd" + count);
+        localStorage.setItem("jcount", (count - 1).toString());
+        _updateStorage();
+    }
+    window["_dells"] = _dells;
 
     function _run_js(code: string, args: any, ci: number): void {
         ((code: string) => {
@@ -87,6 +102,7 @@ let _console: any[][] = [[], [], [], [], []];
             let _xml: any = null;
             let _isRunning: any = null;
             let _updateStorage: any = null;
+            let _dells: any = null;
             let window: any = null;
             let document: any = null;
             let XMLHttpRequest: any = null;
@@ -118,6 +134,9 @@ let _console: any[][] = [[], [], [], [], []];
             return;
         }
         _isRunning = true;
+        _console = [[], [], [], [], []];
+        _input = [[], [], [], [], []];
+        _output = [[], [], [], [], []];
         const codeElement: any = document.getElementById("code");
         let code: string = codeElement.value;
         const langElement: any = document.getElementById("lang");
@@ -183,6 +202,8 @@ let _console: any[][] = [[], [], [], [], []];
                 }
             }
             _console = [[], [], [], [], []];
+            _input = [[], [], [], [], []];
+            _output = [[], [], [], [], []];
             let l_count: number = parseInt(localStorage.getItem("jcount"), 10) + 1;
             localStorage.setItem("jcount", l_count.toString());
             localStorage.setItem("jd" + l_count, score + "||" + det_score + "||" + exeNum + "||" + new Date().toLocaleString());
