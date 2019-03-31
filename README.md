@@ -7,9 +7,13 @@
 $ git clone https://github.com/salifm/judge.git
 $ cd judge
 $ npm install
-$ tsc
-$ npm start
+$ npm run build
+$ npm run start
 ```
 
 
-> Now browse to [http://localhost:3000](http://localhost:3000/)
+> Now browse to [http://localhost:8142](http://localhost:8142/)
+
+## Demo
+
+[salifm.github.io/judge/](https://salifm.github.io/judge/)

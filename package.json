@@ -1,10 +1,11 @@
 {
   "name": "judge",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Serverless Judge System",
   "main": "dist/server.js",
   "scripts": {
-    "start": "node dist/server.js"
+    "start": "nodejs dist/server.js",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -16,7 +17,7 @@
     "serverless"
   ],
   "author": "Salif Mehmed",
-  "license": "Unlicense",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/salifm/judge/issues"
   },

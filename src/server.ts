@@ -6,4 +6,4 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', function (req: any, res: any) {
     res.sendFile(path.join(__dirname, 'public/index.html'));
 });
-app.listen(3000, () => console.log('Listening on port 3000!'));
+app.listen(8142, () => console.log('Listening on port 8142!'));
