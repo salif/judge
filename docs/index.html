@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<link rel="stylesheet" href="style.css" />
+	<script src="script.js"></script>
+	<title>Judge System</title>
+</head>
+
+<body>
+	<div id="con">
+		<textarea id="code"></textarea>
+		<select id="lang" class="osn">
+			<option value="js">JavaScript</option>
+		</select>
+		<select id="exe" class="osn" onchange="_exeChange();">
+			<option value="1">Exercise 1</option>
+			<option value="2">Exercise 2</option>
+			<option value="3">Exercise 3</option>
+			<option value="4">Exercise 4</option>
+			<option value="5">Exercise 5</option>
+		</select>
+		<input type="button" value="submit" class="osn" style="padding:12px 20px;" onclick="_submit();" />
+		<br /><br />
+		<div id="exed">
+		</div>
+		<br /><br />
+		<table id="sbms">
+			<tr>
+				<th>Points</th>
+				<th>Exercise</th>
+				<th>Date</th>
+				<th>Options</th>
+			</tr>
+		</table>
+	</div>
+</body>
+
+</html>
