@@ -3,7 +3,7 @@
     "target": "es5",
     "baseUrl": ".",
     "module": "es2015",
-    "outDir": "dist"
+    "outDir": "dist/src"
   },
   "include": [
     "src/**/*"

@@ -4,8 +4,8 @@
   "description": "Serverless Judge System",
   "main": "dist/server.js",
   "scripts": {
-    "start": "nodejs dist/server.js",
-    "build": "tsc"
+    "start": "nodejs dist/src/server.js",
+    "build": "tsc && copyfiles src/**/*.html src/**/*.css src/**/*.xml dist/"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,8 @@
   "dependencies": {
     "@types/node": "^11.9.5",
     "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.1.0"
   }
 }
