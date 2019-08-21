@@ -6,12 +6,11 @@
 
 ## Installing
 
-```bash
-git clone https://github.com/salifm/judge.git
-cd judge
-npm install
-npm run build
-npm run start
+```sh
+$ git clone https://github.com/salifm/judge.git
+$ cd judge
+$ npm install
+$ node .
 ```
 
 > Now browse to [http://localhost:8142](http://localhost:8142/)

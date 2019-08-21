@@ -2,10 +2,9 @@
   "name": "judge",
   "version": "0.6.0",
   "description": "Serverless Judge System",
-  "main": "dist/server.js",
+  "main": "docs/server.js",
   "scripts": {
-    "start": "nodejs dist/src/server.js",
-    "build": "tsc && copyfiles src/**/*.html src/**/*.css src/**/*.xml dist/"
+    "start": "node docs/server.js"
   },
   "repository": {
     "type": "git",
@@ -22,10 +21,6 @@
   },
   "homepage": "https://github.com/salifm/judge#readme",
   "dependencies": {
-    "@types/node": "^11.9.5",
     "express": "^4.16.4"
-  },
-  "devDependencies": {
-    "copyfiles": "^2.1.0"
   }
 }
