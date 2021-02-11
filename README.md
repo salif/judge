@@ -2,12 +2,12 @@
 
 ## Demo
 
-[https://salifm.github.io/judge/](https://salifm.github.io/judge/)
+[https://salif.github.io/judge/](https://salif.github.io/judge/)
 
 ## Installing
 
 ```sh
-$ git clone https://github.com/salifm/judge.git
+$ git clone https://github.com/salif/judge.git
 $ cd judge
 $ npm install
 $ node .

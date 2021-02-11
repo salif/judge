@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/salifm/judge.git"
+    "url": "git+https://github.com/salif/judge.git"
   },
   "keywords": [
     "judge",
@@ -17,9 +17,9 @@
   "author": "Salif Mehmed",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/salifm/judge/issues"
+    "url": "https://github.com/salif/judge/issues"
   },
-  "homepage": "https://github.com/salifm/judge#readme",
+  "homepage": "https://github.com/salif/judge#readme",
   "dependencies": {
     "express": "^4.17.1"
   }
